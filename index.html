@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kim Oliveros | Technical Lead</title>
+  <meta name="description" content="Kim Oliveros - Technical Lead with 10+ years in software engineering. Engineering leadership and delivery in fintech and banking.">
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root {
+      --bg: #fafaf8;
+      --text: #1f2328;
+      --muted: #5c6670;
+      --card: #ffffff;
+      --border: #e3e3df;
+      --accent: #1f3f8f;
+      --accent2: #1b9aaa;
+      --accent-soft: #e8eefb;
+      --shadow: 0 8px 26px rgba(31, 63, 143, 0.12);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14161a;
+        --text: #e8e9eb;
+        --muted: #9aa3ad;
+        --card: #1c1f25;
+        --border: #2b2f37;
+        --accent: #7ea6ff;
+        --accent2: #4fd1c5;
+        --accent-soft: #1f2a44;
+        --shadow: 0 8px 26px rgba(0, 0, 0, 0.4);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+    /* Icons */
+    .ic {
+      width: 1.15em; height: 1.15em; flex: none;
+      stroke: currentColor; fill: none; stroke-width: 2;
+      stroke-linecap: round; stroke-linejoin: round;
+      vertical-align: -0.2em;
+    }
+    .badge {
+      display: inline-grid; place-items: center; flex: none;
+      width: 38px; height: 38px; border-radius: 11px;
+      background: var(--accent-soft); color: var(--accent);
+    }
+    .badge .ic { width: 20px; height: 20px; }
+
+    /* Navigation */
+    header.nav {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    header.nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+    .logo { font-weight: 700; color: var(--text); }
+    nav { display: flex; gap: 4px; }
+    nav a {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 10px; border-radius: 8px;
+      color: var(--muted); font-size: 0.93rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover { color: var(--accent); background: var(--accent-soft); text-decoration: none; }
+    @media (max-width: 620px) {
+      nav a .ic { display: none; }
+      nav a { padding: 6px 7px; font-size: 0.88rem; }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative; isolation: isolate;
+      padding: 70px 0 40px; display: flex; gap: 36px; align-items: center; flex-wrap: wrap;
+    }
+    .hero::before {
+      content: ""; position: absolute; z-index: -1;
+      top: -30px; right: -40px; width: 380px; height: 380px;
+      background: radial-gradient(circle, var(--accent-soft) 0%, transparent 68%);
+    }
+    .hero img {
+      width: 170px; height: 170px; object-fit: cover; border-radius: 50%;
+      padding: 4px; background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: var(--shadow);
+    }
+    .hero-text { flex: 1; min-width: 260px; }
+    .hero h1 {
+      font-size: clamp(2.1rem, 6vw, 3.1rem); margin: 0 0 6px; line-height: 1.15;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero .role { font-size: 1.15rem; color: var(--text); margin: 0 0 12px; font-weight: 600; }
+    .hero p { color: var(--muted); margin: 0 0 6px; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 8px; font-size: 0.93rem; color: var(--muted); }
+    .meta span { display: inline-flex; align-items: center; gap: 6px; }
+    .meta .ic { color: var(--accent2); }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin: 18px 10px 0 0; padding: 10px 20px; border-radius: 10px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: #fff; font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    @media (prefers-color-scheme: dark) { .btn { color: #0f1115; } }
+    .btn.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn:hover { text-decoration: none; transform: translateY(-2px); box-shadow: var(--shadow); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    .hero img, .hero-text > * { animation: fadeUp 0.7s ease both; }
+    .hero-text > *:nth-child(2) { animation-delay: 0.08s; }
+    .hero-text > *:nth-child(3) { animation-delay: 0.16s; }
+    .hero-text > *:nth-child(4) { animation-delay: 0.24s; }
+    .hero-text > *:nth-child(5) { animation-delay: 0.32s; }
+
+    /* Stats */
+    .stats { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); padding: 0 0 44px; }
+    .stat {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 16px 18px; display: flex; align-items: center; gap: 14px;
+    }
+    .stat strong { display: block; font-size: 1.5rem; line-height: 1.1; color: var(--accent); }
+    .stat small { color: var(--muted); font-size: 0.85rem; line-height: 1.3; display: block; margin-top: 2px; }
+
+    /* Sections */
+    section { padding: 48px 0; border-top: 1px solid var(--border); }
+    section h2 { display: flex; align-items: center; gap: 12px; margin: 0 0 22px; font-size: 1.5rem; }
+    section h3.sub { display: flex; align-items: center; gap: 10px; margin: 30px 0 14px; font-size: 1.15rem; }
+
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 18px 20px;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--accent); }
+    .card .badge { margin-bottom: 12px; }
+    .card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+    .card .more { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-weight: 600; }
+    .card .more .ic { transition: transform 0.2s; }
+    .card .more:hover .ic { transform: translateX(4px); }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+    .chips li {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 12px; border-radius: 999px; font-size: 0.88rem;
+      background: var(--accent-soft); color: var(--accent);
+    }
+    .live {
+      display: inline-flex; align-items: center; gap: 6px; margin-bottom: 10px;
+      padding: 3px 10px; border-radius: 999px; font-size: 0.78rem; font-weight: 600;
+      background: rgba(34, 160, 90, 0.14); color: #1c8a4f;
+    }
+    @media (prefers-color-scheme: dark) { .live { color: #6fdc9f; } }
+    .live::before {
+      content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.5); } }
+    .card .chips { margin-top: 12px; }
+    .card .chips li { font-size: 0.78rem; padding: 3px 10px; }
+
+    .cert { display: flex; align-items: center; gap: 14px; }
+    .cert p { color: var(--text); font-weight: 500; }
+
+    .contact-list { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 10px; }
+    .contact-list a, .contact-list .plain {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 10px 14px; color: var(--text);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .contact-list a:hover { transform: translateX(4px); border-color: var(--accent); text-decoration: none; }
+    .contact-list .badge { width: 34px; height: 34px; }
+
+    footer { padding: 28px 0 48px; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    footer a { display: inline-flex; align-items: center; gap: 6px; }
+
+    /* Scroll reveal (only when JavaScript is on) */
+    .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .js .reveal.in { opacity: 1; transform: none; }
+    .grid .reveal:nth-child(2) { transition-delay: 0.08s; }
+    .grid .reveal:nth-child(3) { transition-delay: 0.16s; }
+    .grid .reveal:nth-child(4) { transition-delay: 0.24s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .js .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Icon sprite (inline so it works anywhere) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
+  </svg>
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="logo" href="#top">Kim Oliveros</a>
+      <nav>
+        <a href="#about"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg>About</a>
+        <a href="#projects"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg>Projects</a>
+        <a href="#certifications"><svg class="ic" aria-hidden="true"><use href="#i-award"/></svg>Certifications</a>
+        <a href="#contact"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="top">
+
+    <!-- HERO -->
+    <div class="hero">
+      <!-- Add your photo as photo.jpg in the same folder. It hides itself if the file is missing. -->
+      <img src="photo.jpg" alt="Portrait of Kim Oliveros" onerror="this.style.display='none'">
+      <div class="hero-text">
+        <h1>Kim Oliveros</h1>
+        <p class="role">Technical Lead</p>
+        <p>Engineering Leadership &amp; Delivery &nbsp;|&nbsp; Fintech &amp; Banking</p>
+        <div class="meta">
+          <span><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Metro Manila, Philippines</span>
+        </div>
+        <div>
+          <a class="btn" href="#projects">View projects <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+          <a class="btn secondary" href="#contact"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Get in touch</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stat reveal">
+        <span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></span>
+        <div><strong>10+</strong><small>years in software engineering</small></div>
+      </div>
+      <div class="stat reveal">
+        <span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg></span>
+        <div><strong>3–8</strong><small>developers led per team</small></div>
+      </div>
+      <div class="stat reveal">
+        <span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg></span>
+        <div><strong>5</strong><small>concurrent initiatives delivered</small></div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" class="reveal">
+      <h2><span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg></span>About</h2>
+      <p>
+        Technical Lead with 10+ years in software engineering, leading developer teams of 3 to 8 and now
+        delivering enterprise banking initiatives at a major Philippine bank. I align architects, security,
+        infrastructure, vendors, and project managers on scope and dependencies. I mentor engineers, review
+        code, and keep delivery risk low by understanding the engineering underneath the plan. I also serve as
+        head developer of a React and FastAPI SaaS product.
+      </p>
+
+      <h3 class="sub"><span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span>Core competencies</h3>
+      <div class="grid">
+        <div class="card reveal">
+          <span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg></span>
+          <h3>Technical leadership</h3>
+          <p>Led teams of 3 to 8 developers; code review, coaching, onboarding.</p>
+        </div>
+        <div class="card reveal">
+          <span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span>
+          <h3>Delivery</h3>
+          <p>Five concurrent initiatives, scope and dependency management, risk anticipation, Agile/Scrum (Scrum Foundation certified).</p>
+        </div>
+        <div class="card reveal">
+          <span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-share"/></svg></span>
+          <h3>Stakeholder &amp; vendor management</h3>
+          <p>Aligning architects, security, infrastructure, and vendor partners; business cases.</p>
+        </div>
+        <div class="card reveal">
+          <span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg></span>
+          <h3>Technical foundation</h3>
+          <p>Python, PHP, JavaScript, React, FastAPI, GitHub Actions CI/CD, API and systems integration, legacy modernization, Claude Code.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="reveal">
+      <h2><span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg></span>Projects</h2>
+      <div class="grid">
+        <article class="card reveal">
+          <span class="live">Live on the Apple App Store</span>
+          <span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></span>
+          <h3>CareSuite</h3>
+          <p>A mobile SaaS for spas, salons, and aesthetic clinics: scheduling, AI service suggestions, and inventory.</p>
+          <ul class="chips">
+            <li>React</li>
+            <li>Capacitor</li>
+            <li>FastAPI</li>
+            <li>MariaDB</li>
+          </ul>
+          <a class="more" href="caresuite.html">Read the case study <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="reveal">
+      <h2><span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-award"/></svg></span>Certifications</h2>
+      <div class="card cert">
+        <span class="badge" style="margin:0"><svg class="ic" aria-hidden="true"><use href="#i-award"/></svg></span>
+        <p>Scrum Foundation Professional Certificate (SFPC)</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal">
+      <h2><span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></span>Contact</h2>
+      <p>Open to conversations about engineering leadership, delivery, and fintech projects.</p>
+      <ul class="contact-list">
+        <li>
+          <a href="mailto:kim2235@gmail.com">
+            <span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></span>kim2235@gmail.com
+          </a>
+        </li>
+        <li>
+          <a href="https://linkedin.com/in/kim-o-ab519259">
+            <span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg></span>linkedin.com/in/kim-o-ab519259
+          </a>
+        </li>
+        <li>
+          <div class="plain">
+            <span class="badge"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></span>Metro Manila, Philippines
+          </div>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>&copy; <span id="year"></span> Kim Oliveros</span>
+      <a href="#top"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up"/></svg>Back to top</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fade elements in as they scroll into view
+    (function () {
+      var items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>
